@@ -12,3 +12,4 @@ A simple script to generate a read only HTML/JS/CSS calendar from icalendar file
 	
 	*/30 * * * * python main.py > /dev/null
 
+![screenshot.png](screenshot.png)
