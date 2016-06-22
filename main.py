@@ -3,6 +3,8 @@ from jinja2 import Template
 from os import listdir
 from os.path import isfile, join
 
+# cal_location - has to be a direcotry. It will read all files with an extention .ics.
+
 cal_location = "/home/osaka/.calendars/work.ics/"
 template_location = "./index.template"
 html_location = "./public_html/index.html"
@@ -14,7 +16,8 @@ cal_events = []
 for e in events: 
 	try: 
 		cal = vobject.readOne(open(join(cal_location, e), 'rb').read())
-		cal_events.append(cal.vevent)
+		for ev in cal.vevent_list:
+			cal_events.append(ev)
 	except:
 		print "> Unable to read: ", e, "\n"
 
